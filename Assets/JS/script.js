@@ -10,7 +10,7 @@ var highscoreName = document.querySelector('#highscore-name')
 var greeting = document.getElementById('greeting')
 var gameOver = document.getElementById('game-over')
 var timer = document.getElementById('time-remaining')
-var number = 100
+var number = 60
 
 let shuffledQuestions, currentQuestion
 
@@ -27,6 +27,7 @@ function startGame(){
     currentQuestion = 0
     questionContainerEL.classList.remove("hide")
     timeRemaining();
+    update = setInterval("timeRemaining()", 1000);
     nextQuestion();
 }
  
@@ -68,10 +69,12 @@ function selectAnswer(e){
         correctAnswerEL.classList.remove('hide')
     } else {
         incorrectAnswerEL.classList.remove('hide')
+        number = number - 25;
     }
     if (shuffledQuestions.length > currentQuestion +1){
         nextButton.classList.remove('hide')
     } else {
+        clearInterval(update)
         gameOver.classList.remove('hide')
         questionContainerEL.classList.add('hide')
         formEL.classList.remove('hide')
@@ -95,18 +98,22 @@ function clearStatus(element){
     formEL.classList.add('hide')
 }
 
-function timeRemaining (){ 
+function timeRemaining (){
     number = number - 1;
     if (number > 1){
         timer.innerHTML = number;
-    } else {
+    } else if (shuffledQuestions.length < currentQuestion){
+        gameOver.classList.remove('hide')
+        questionContainerEL.classList.add('hide')
+        formEL.classList.remove('hide')
+    }else {
         gameOver.classList.remove('hide')
         questionContainerEL.classList.add('hide')
         formEL.classList.remove('hide')
     }
 }
 
-update = setInterval("timeRemaining()", 1000);
+
 
 var questions = [
     {
