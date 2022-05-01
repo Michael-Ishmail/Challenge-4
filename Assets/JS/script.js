@@ -3,10 +3,19 @@ var nextButton = document.getElementById("next-button")
 var questionContainerEL = document.getElementById("question-container")
 var questionEl = document.getElementById("question")
 var answerButtonEL = document.getElementById("answer-buttons")
+var correctAnswerEL = document.getElementById('correct-answer')
+var incorrectAnswerEL = document.getElementById('incorrect-answer')
+var highscoreName = document.getElementById('highscore-name')
+
+console.log(highscoreName)
 
 let shuffledQuestions, currentQuestion
 
 startButton.addEventListener('click', startGame)
+nextButton.addEventListener('click', () => {
+    currentQuestion++
+    nextQuestion()
+})
 
 function startGame(){
     console.log("started")
@@ -16,7 +25,7 @@ function startGame(){
     questionContainerEL.classList.remove("hide")
     nextQuestion();
 }
-
+ 
 function nextQuestion(){
     resetState();
     showQuestion(shuffledQuestions[currentQuestion]);
@@ -37,14 +46,47 @@ function showQuestion(question){
 }
 
 function resetState(){
+    clearStatus(document.body)
     nextButton.classList.add('hide');
     while (answerButtonEL.firstChild) {
         answerButtonEL.removeChild(answerButtonEL.firstChild)
     }
 }
 
-function selectAnswer(){
+function selectAnswer(e){
+    var selectedButton = e.target
+    var correct = selectedButton.dataset.correct
+    setStatus(document.getElementById('answer-buttons'), correct)
+    Array.from(answerButtonEL.children).forEach(button => {
+        setStatus(button, button.dataset.correct)
+    })
+    if (correct){
+        correctAnswerEL.classList.remove('hide')
+    } else {
+        incorrectAnswerEL.classList.remove('hide')
+    }
+    if (shuffledQuestions.length > currentQuestion +1){
+        nextButton.classList.remove('hide')
+    } else {
 
+    }
+    nextButton.classList.remove('hide')
+}
+
+function setStatus(element, correct){
+    clearStatus(element)
+    if(correct){
+    element.classList.add('correct')
+    } else {
+        element.classList.add('incorrect')
+    } 
+}
+
+function clearStatus(element){
+    element.classList.remove('correct')
+    element.classList.remove('incorrect')
+    correctAnswerEL.classList.add('hide')
+    incorrectAnswerEL.classList.add('hide')
 }
 
 var questions = [
@@ -85,7 +127,6 @@ var questions = [
             {text: 'var array = ["Value 1", "Value 2", "Value 3"]', correct: true},
 
         ]
-    }
-
+    },
 
 ]

@@ -35,10 +35,19 @@ section{
     margin: 20px 0px;
 }
 
+.correct{
+    color: green;
+    font-weight: bold;
+}
+
+.incorrect{
+    color: red;
+    font-weight: bold;
+}
+
 .controls{
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .start-button{
