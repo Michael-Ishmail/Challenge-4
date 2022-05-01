@@ -32,7 +32,7 @@ function startGame(){
     nextQuestion();
 }
 
-function gameOver(){
+function gameScore(){
     finalScore.innerHTML = number;
 }
  
@@ -83,7 +83,7 @@ function selectAnswer(e){
         gameOver.classList.remove('hide')
         questionContainerEL.classList.add('hide')
         formEL.classList.remove('hide')
-        gameOver()
+        gameScore()
     }
 }
 
@@ -114,7 +114,7 @@ function timeRemaining (){
         gameOver.classList.remove('hide')
         questionContainerEL.classList.add('hide')
         formEL.classList.remove('hide')
-        gameOver()
+        gameScore()
     }
 }
 
