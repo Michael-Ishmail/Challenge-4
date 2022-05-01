@@ -11,6 +11,7 @@ var greeting = document.getElementById('greeting')
 var gameOver = document.getElementById('game-over')
 var timer = document.getElementById('time-remaining')
 var number = 60
+var finalScore = document.getElementById('final-score')
 
 let shuffledQuestions, currentQuestion
 
@@ -29,6 +30,10 @@ function startGame(){
     timeRemaining();
     update = setInterval("timeRemaining()", 1000);
     nextQuestion();
+}
+
+function gameOver(){
+    finalScore.innerHTML = number;
 }
  
 function nextQuestion(){
@@ -78,6 +83,7 @@ function selectAnswer(e){
         gameOver.classList.remove('hide')
         questionContainerEL.classList.add('hide')
         formEL.classList.remove('hide')
+        gameOver()
     }
 }
 
@@ -100,16 +106,15 @@ function clearStatus(element){
 
 function timeRemaining (){
     number = number - 1;
-    if (number > 1){
+    if (number >= 1){
         timer.innerHTML = number;
-    } else if (shuffledQuestions.length < currentQuestion){
-        gameOver.classList.remove('hide')
-        questionContainerEL.classList.add('hide')
-        formEL.classList.remove('hide')
+    
     }else {
+        clearInterval(update)
         gameOver.classList.remove('hide')
         questionContainerEL.classList.add('hide')
         formEL.classList.remove('hide')
+        gameOver()
     }
 }
 
