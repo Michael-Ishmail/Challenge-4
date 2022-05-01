@@ -8,9 +8,7 @@ header{
     justify-content: space-between;
 }
 
-.timer{
-    justify-content: space-between;
-}
+
 
 section{
     padding: 0;
@@ -21,6 +19,7 @@ section{
     justify-content: center;
     align-items: center;
 }
+
 
 .container{
     width: 800px;
@@ -33,16 +32,6 @@ section{
     grid-template-columns: repeat(2, auto);
     gap: 5px;
     margin: 20px 0px;
-}
-
-.correct{
-    color: green;
-    font-weight: bold;
-}
-
-.incorrect{
-    color: red;
-    font-weight: bold;
 }
 
 .controls{
@@ -64,4 +53,14 @@ section{
 
 .hide{
     display: none;
+}
+
+.correct{
+    color: green;
+    font-weight: bold;
+}
+
+.incorrect{
+    color: red;
+    font-weight: bold;
 }

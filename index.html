@@ -15,10 +15,27 @@
             <a href="./highscores.html"><button class="button">View Highscores</button></a>
         </div>
 
+        <div class="greeting" id="greeting">
+            <h1>
+               Welcome to the quiz!
+            </h1>
+        </div>
+
+        <div class="game-over hide" id="game-over">
+            <h2>
+                Game over
+            </h2>
+
+            <p class="final-score" id="final-score">
+                Final score
+            </p>
+        </div>
+
         <div class="timer" id="timer">
-            Timer placeholder
+            <p>Time remaining:</p> <p class="timer" id="time-remaining">100</p>
         </div>
     </header>
+
 
     <section>
         <div class="container">
@@ -42,9 +59,9 @@
          <div class="controls">
             <button id="start-button" class="start-button btn">Start</button>
             <button id="next-button" class="next-button btn hide">Next</button>
-            <form class="form ">
-            <input placeholder="Enter name here" type="text" id="highscore-name" name="highscore-name" class="highscore-name">
-            <input type="submit" value="submit">
+            <form class="form hide" id="form-input">
+                <input placeholder="Enter name here" type="text" id="highscore-name" name="highscore-name" class="highscore-name">
+                <input type="submit" value="submit">
             </form>
          </div>
          </div>
