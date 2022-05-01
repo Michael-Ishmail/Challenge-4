@@ -28,14 +28,31 @@ section{
     padding: 10px;
 }
 
-.question-container{   
-    margin: 20px;
-    padding: 10px;
-}
-
 .answers-container{
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 5px;
+    margin: 20px 0px;
 }
 
+.controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-button{
+    font-size: larger;
+    font-weight: bold;
+    padding: 20px 20px;
+}
+
+.next-button{
+    font-size: larger;
+    font-weight: bold;
+    padding: 20px 20px;
+}
+
+.hide{
+    display: none;
+}
