@@ -1,0 +1,41 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.timer{
+    justify-content: space-between;
+}
+
+section{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width: 800px;
+    max-width: 70%;
+    padding: 10px;
+}
+
+.question-container{   
+    margin: 20px;
+    padding: 10px;
+}
+
+.answers-container{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 5px;
+}
+
