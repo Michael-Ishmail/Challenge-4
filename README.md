@@ -6,4 +6,6 @@ To view the highscores list, simply click on the highscores button on the top le
 
 Below is a screenshot of the quiz as well as a link leading to it.
 
-![Img-preview](../Assets/JS web quiz.png)
+https://michael-ishmail.github.io/Challenge-4/
+
+![img](JS-web-quiz.png)
