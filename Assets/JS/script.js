@@ -12,6 +12,8 @@ var gameOver = document.getElementById('game-over')
 var timer = document.getElementById('time-remaining')
 var number = 60
 var finalScore = document.getElementById('final-score')
+var formEL = document.getElementById('form-input')
+
 
 let shuffledQuestions, currentQuestion
 
@@ -34,6 +36,20 @@ function startGame(){
 
 function gameScore(){
     finalScore.innerHTML = number;
+}
+
+createTaskhandler = function(event){
+    event.preventDefault();
+    var user = {
+        score: number,
+        scoreName: highscoreName.value,
+    }
+    localStorage.setItem('user', JSON.stringify(user));
+    var user = JSON.parse(localStorage.getItem('user'));
+
+   
+    document.getElementById('user-name').innerHTML = user;
+    document.getElementById('score-number').innerHTML = score;
 }
  
 function nextQuestion(){
@@ -118,6 +134,7 @@ function timeRemaining (){
     }
 }
 
+formEL.addEventListener('submit', createTaskhandler);
 
 
 var questions = [
