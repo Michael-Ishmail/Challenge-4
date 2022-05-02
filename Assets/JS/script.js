@@ -13,6 +13,8 @@ var timer = document.getElementById('time-remaining')
 var number = 60
 var finalScore = document.getElementById('final-score')
 var formEL = document.getElementById('form-input')
+var userName = document.getElementById('user-name')
+var userScore = document.getElementById('user-score')
 
 
 let shuffledQuestions, currentQuestion
@@ -34,24 +36,6 @@ function startGame(){
     nextQuestion();
 }
 
-function gameScore(){
-    finalScore.innerHTML = number;
-}
-
-createTaskhandler = function(event){
-    event.preventDefault();
-    var user = {
-        score: number,
-        scoreName: highscoreName.value,
-    }
-    localStorage.setItem('user', JSON.stringify(user));
-    var user = JSON.parse(localStorage.getItem('user'));
-
-   
-    document.getElementById('user-name').innerHTML = user;
-    document.getElementById('score-number').innerHTML = score;
-}
- 
 function nextQuestion(){
     resetState();
     showQuestion(shuffledQuestions[currentQuestion]);
@@ -134,8 +118,33 @@ function timeRemaining (){
     }
 }
 
+createTaskhandler = function(event){
+    event.preventDefault();
+    var scoreName = {
+        scoreName: highscoreName.value,
+    }
+    var score = {
+        score: number,
+    }
+    localStorage.setItem('scoreName', JSON.stringify(scoreName));
+    var scoreName = JSON.parse(localStorage.getItem('scoreName'));
+
+    localStorage.setItem('score', JSON.stringify(score));
+    var score = JSON.parse(localStorage.getItem('score'));
+
+   
+    document.getElementById(userName).innerHTML = scoreName
+    document.getElementById(userScore).innerHTML = score;
+}
+
 formEL.addEventListener('submit', createTaskhandler);
 
+
+ 
+
+function gameScore(){
+    finalScore.innerHTML = number;
+}
 
 var questions = [
     {
